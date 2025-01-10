@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function TrendingCoins() {
-  const [coinsData, setCoinsData] = useState([]); // Define the state without TypeScript type
+  const [coinsData, setCoinsData] = useState([]); 
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -19,7 +19,7 @@ function TrendingCoins() {
           changePercentage: coin.item.data.price_change_percentage_24h.usd.toFixed(2),
         }));
 
-        // Updating the state with the formatted data
+        
         setCoinsData(formattedCoinsData);
       } catch (error) {
         console.error("Error fetching coin data:", error);
@@ -49,8 +49,8 @@ function TrendingCoins() {
   );
 }
 
-function Coin({ symbol, name, img, changePercentage }) { // Removed TypeScript interface
-  const isPositiveChange = parseFloat(changePercentage) >= 0; // Parse changePercentage to float
+function Coin({ symbol, name, img, changePercentage }) { 
+  const isPositiveChange = parseFloat(changePercentage) >= 0; 
 
   return (
     <div className="flex my-2 justify-between text-center py-1">
